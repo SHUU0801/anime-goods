@@ -1,0 +1,58 @@
+{
+  "targets": [
+    {
+      "name": "サイバーパンク エッジランナーズ",
+      "keywords_x": [
+        "サイバーパンク グッズ",
+        "サイバーパンク コラボ",
+        "サイバーパンク 予約",
+        "サイバーパンク 一番くじ",
+        "サイバーパンク コラボカフェ",
+        "Cyberpunk Edgerunners goods"
+      ],
+      "keywords_google": [
+        "サイバーパンク エッジランナーズ グッズ 2025",
+        "サイバーパンク エッジランナーズ コラボ 2025",
+        "サイバーパンク エッジランナーズ 一番くじ",
+        "サイバーパンク エッジランナーズ コラボカフェ",
+        "サイバーパンク エッジランナーズ 予約 限定"
+      ]
+    },
+    {
+      "name": "デスノート",
+      "keywords_x": [
+        "デスノート グッズ",
+        "デスノート コラボ",
+        "デスノート 予約",
+        "デスノート 一番くじ",
+        "デスノート コラボカフェ"
+      ],
+      "keywords_google": [
+        "デスノート グッズ 2025",
+        "デスノート コラボ 2025",
+        "デスノート 一番くじ",
+        "デスノート コラボカフェ",
+        "デスノート 予約 限定"
+      ]
+    }
+  ],
+  "trusted_domains": [
+    "animate.co.jp",
+    "gamers.co.jp",
+    "jump.shueisha.co.jp",
+    "natalie.mu",
+    "nijigenfes.jp",
+    "ichibankuji.com",
+    "lawson.co.jp",
+    "bandaispirits.co.jp",
+    "animate.com",
+    "akibaoo.co.jp",
+    "aniplex.co.jp",
+    "collab-cafe.com",
+    "ufotablecinema.com",
+    "ponycanyon.co.jp"
+  ],
+  "trusted_x_keywords": ["公式", "アニメイト", "ナタリー", "ジャンプ", "jump", "official"],
+  "filter_keywords": ["予約", "発売", "コラボ", "開催", "グッズ", "受注", "限定", "発表", "一番くじ", "コラボカフェ", "フェア", "キャンペーン"],
+  "exclude_keywords": ["メルカリ", "ラクマ", "フリマ", "ヤフオク", "転売", "出品中", "売ります"]
+}

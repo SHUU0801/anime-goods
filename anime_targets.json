@@ -1,0 +1,644 @@
+[
+    {
+        "name_ja": "サイバーパンク エッジランナーズ",
+        "name_en": "Cyberpunk: Edgerunners",
+        "genre": "SF・アクション",
+        "reason": "Netflixで世界的に話題、一番くじやスケールフィギュアが継続展開中。"
+    },
+    {
+        "name_ja": "DEATH NOTE",
+        "name_en": "Death Note",
+        "genre": "ダークファンタジー・サスペンス",
+        "reason": "完結後もポップアップストアや高級グッズの受注販売が継続。"
+    },
+    {
+        "name_ja": "STEINS;GATE",
+        "name_en": "Steins;Gate",
+        "genre": "SF・サスペンス",
+        "reason": "科学アドベンチャーシリーズの金字塔、周年イベントが絶えない。"
+    },
+    {
+        "name_ja": "魔法少女まどか☆マギカ",
+        "name_en": "Puella Magi Madoka Magica",
+        "genre": "ダークファンタジー",
+        "reason": "新作映画「ワルプルギスの廻天」に伴い一番くじ・コラボが活発化。"
+    },
+    {
+        "name_ja": "Re:ゼロから始める異世界生活",
+        "name_en": "Re:Zero",
+        "genre": "異世界・ダークファンタジー",
+        "reason": "アニメ3期放送に合わせ一番くじ・コラボカフェが極めて高頻度。"
+    },
+    {
+        "name_ja": "ヴァイオレット・エヴァーガーデン",
+        "name_en": "Violet Evergarden",
+        "genre": "ヒューマンドラマ・感動",
+        "reason": "高品質な限定グッズが争奪戦になる根強い人気。"
+    },
+    {
+        "name_ja": "メイドインアビス",
+        "name_en": "Made in Abyss",
+        "genre": "ダークファンタジー・冒険",
+        "reason": "独特のコンセプトのコラボメニューやグッズが多い。"
+    },
+    {
+        "name_ja": "PSYCHO-PASS サイコパス",
+        "name_en": "Psycho-Pass",
+        "genre": "SF・警察",
+        "reason": "10周年超えても舞台化・原画展・アパレルコラボが継続。"
+    },
+    {
+        "name_ja": "攻殻機動隊 Stand Alone Complex",
+        "name_en": "Ghost in the Shell: S.A.C.",
+        "genre": "SF・サイバーパンク",
+        "reason": "ハイテクガジェットや時計、アパレルなどこだわり派のグッズが展開。"
+    },
+    {
+        "name_ja": "ブラック・ラグーン",
+        "name_en": "Black Lagoon",
+        "genre": "ハードボイルド・アクション",
+        "reason": "20周年以降、Zippoやガンアクセサリー風コラボが頻発。"
+    },
+    {
+        "name_ja": "BANANA FISH",
+        "name_en": "Banana Fish",
+        "genre": "ダークファンタジー・アクション",
+        "reason": "コラボカフェや聖地巡礼ツアーの勢いが衰えない。"
+    },
+    {
+        "name_ja": "文豪ストレイドッグス",
+        "name_en": "Bungo Stray Dogs",
+        "genre": "異能力アクション",
+        "reason": "サンリオコラボや一番くじ、地方自治体との大型コラボが常態化。"
+    },
+    {
+        "name_ja": "ブルーロック",
+        "name_en": "Blue Lock",
+        "genre": "スポーツ・バトル",
+        "reason": "劇場版公開と共にコラボ展開が急増中。"
+    },
+    {
+        "name_ja": "ハイキュー!!",
+        "name_en": "Haikyu!!",
+        "genre": "スポーツ",
+        "reason": "劇場版ヒットにより飲食店・コンビニとのコラボが国内最高頻度。"
+    },
+    {
+        "name_ja": "ぼっち・ざ・ろっく！",
+        "name_en": "Bocchi the Rock!",
+        "genre": "音楽・日常",
+        "reason": "楽器大手とのコラボや、音楽ファンも巻き込んだ巨大な市場を形成。"
+    },
+    {
+        "name_ja": "ガールズバンドクライ",
+        "name_en": "Girls Band Cry",
+        "genre": "音楽・ドラマ",
+        "reason": "2024年のダークホースとして急浮上、タワーレコードでのリアルな機材展開が熱い。"
+    },
+    {
+        "name_ja": "BanG Dream! It's MyGO!!!!!",
+        "name_en": "BanG Dream! It's MyGO!!!!!",
+        "genre": "音楽・ドラマ",
+        "reason": "重い脚本で支持を集め、単独ライブやカフェ展開が急拡大。"
+    },
+    {
+        "name_ja": "葬送のフリーレン",
+        "name_en": "Frieren: Beyond Journey's End",
+        "genre": "ファンタジー",
+        "reason": "放送以降、圧倒的人気を得て大型施設とのコラボが続いている。"
+    },
+    {
+        "name_ja": "薬屋のひとりごと",
+        "name_en": "The Apothecary Diaries",
+        "genre": "ミステリー・歴史",
+        "reason": "和菓子店や博物館などジャンルレスなコラボが見られる。"
+    },
+    {
+        "name_ja": "僕の心のヤバイやつ",
+        "name_en": "The Dangers in My Heart",
+        "genre": "ラブコメ・青春",
+        "reason": "ペアアクセサリーなどSNS話題性が非常に高いグッズ展開が強い。"
+    },
+    {
+        "name_ja": "推しの子",
+        "name_en": "Oshi no Ko",
+        "genre": "サスペンス・アイドル",
+        "reason": "アニメ2期・実写化でアパレルからコンビニ、一番くじまでトップクラスの展開。"
+    },
+    {
+        "name_ja": "チェンソーマン",
+        "name_en": "Chainsaw Man",
+        "genre": "ダークファンタジー・アクション",
+        "reason": "劇場版「レゼ篇」へ期待が高く、ブランドコラボや高級フィギュアの受注が続く。"
+    },
+    {
+        "name_ja": "モブサイコ100",
+        "name_en": "Mob Psycho 100",
+        "genre": "超能力アクション",
+        "reason": "アニメ完結後も公式グッズやポップアップが定期的。"
+    },
+    {
+        "name_ja": "ジョジョの奇妙な冒険",
+        "name_en": "JoJo's Bizarre Adventure",
+        "genre": "アクション・超能力",
+        "reason": "アパレルブランドや高級腕時計とのコラボが多い。"
+    },
+    {
+        "name_ja": "物語シリーズ",
+        "name_en": "Monogatari Series",
+        "genre": "怪異・サスペンス",
+        "reason": "タイポグラフィを活かしたアパレルやカフェが再始動。"
+    },
+    {
+        "name_ja": "コードギアス 反逆のルルーシュ",
+        "name_en": "Code Geass",
+        "genre": "SF・ロボット",
+        "reason": "新作「奪還のロゼ」と共に周年グッズ・コラボカフェが恒例化。"
+    },
+    {
+        "name_ja": "86―エイティシックス―",
+        "name_en": "86 Eighty-Six",
+        "genre": "SF・戦争",
+        "reason": "プラモデルや重厚な設定資料集が即完売する熱狂的信者が多い。"
+    },
+    {
+        "name_ja": "機動戦士ガンダム 水星の魔女",
+        "name_en": "Mobile Suit Gundam: The Witch from Mercury",
+        "genre": "SF・学園",
+        "reason": "キャラグッズやアパレルコラボがガンプラ以上に活発なケースも。"
+    },
+    {
+        "name_ja": "SSSS.GRIDMAN / DYNAZENON",
+        "name_en": "SSSS.GRIDMAN",
+        "genre": "SF・特撮",
+        "reason": "劇場版以降、フィギュアや特撮玩具風グッズ展開が非常に強力。"
+    },
+    {
+        "name_ja": "カウボーイビバップ",
+        "name_en": "Cowboy Bebop",
+        "genre": "SF・アクション",
+        "reason": "世界的アパレルブランドとのコラボやLPレコード再販が絶えない。"
+    },
+    {
+        "name_ja": "新世紀エヴァンゲリオン",
+        "name_en": "Neon Genesis Evangelion",
+        "genre": "SF・メカ",
+        "reason": "シン・エヴァ完結後もRADIO EVAなどのアパレルや地方自治体コラボが日本最大級。"
+    },
+    {
+        "name_ja": "serial experiments lain",
+        "name_en": "Serial Experiments Lain",
+        "genre": "SF・サイバーパンク",
+        "reason": "25周年超えるアパレル、ポップアップストアが再び注目されている。"
+    },
+    {
+        "name_ja": "天元突破グレンラガン",
+        "name_en": "Tengen Toppa Gurren Lagann",
+        "genre": "SF・アクション",
+        "reason": "劇場版再上映に合わせ大型のフィギュアや新作アプリコラボが熱狂的に迎えられる。"
+    },
+    {
+        "name_ja": "キルラキル",
+        "name_en": "Kill la Kill",
+        "genre": "アクション",
+        "reason": "TRIGGER作品独特のデザインがグッズ映えし、周年ポップアップが常に賑わう。"
+    },
+    {
+        "name_ja": "プロメア",
+        "name_en": "Promare",
+        "genre": "アクション・SF",
+        "reason": "アパレル、コラボカフェ、応炎上映用グッズの展開が定番化。"
+    },
+    {
+        "name_ja": "リコリス・リコイル",
+        "name_en": "Lycoris Recoil",
+        "genre": "アクション",
+        "reason": "ペアグッズが常に即完、サバゲー関連グッズや劇中再現カフェが定期開催。"
+    },
+    {
+        "name_ja": "Fate/stay night",
+        "name_en": "Fate series",
+        "genre": "アクション・ファンタジー",
+        "reason": "一番くじやジュエリーコラボ、オーケストラコンサート用高級グッズが安定した人気。"
+    },
+    {
+        "name_ja": "地獄楽",
+        "name_en": "Hell's Paradise",
+        "genre": "ダークファンタジー",
+        "reason": "和風ダークな洗練されたデザインがグッズとして人気。"
+    },
+    {
+        "name_ja": "ヴィンランド・サガ",
+        "name_en": "Vinland Saga",
+        "genre": "歴史・アクション",
+        "reason": "大人のファンが多く、高品質な設定資料集やコラボカフェの展開が根強い。"
+    },
+    {
+        "name_ja": "ひぐらしのなく頃に",
+        "name_en": "Higurashi When They Cry",
+        "genre": "ホラー・ミステリー",
+        "reason": "サンリオコラボや脱出ゲームなどの多角的な展開が続行中。"
+    },
+    {
+        "name_ja": "東京喰種 トーキョーグール",
+        "name_en": "Tokyo Ghoul",
+        "genre": "ダークファンタジー",
+        "reason": "スタイリッシュなアパレルや高級フィギュアが世界的に人気。"
+    },
+    {
+        "name_ja": "青の祓魔師",
+        "name_en": "Blue Exorcist",
+        "genre": "アクション・ファンタジー",
+        "reason": "連続展開中のアニメに伴いコラボカフェや一番くじが再燃中。"
+    },
+    {
+        "name_ja": "暗殺教室",
+        "name_en": "Assassination Classroom",
+        "genre": "アクション・コメディ",
+        "reason": "殺せんせーというアイコンが非常に強く、幅広くグッズが展開される。"
+    },
+    {
+        "name_ja": "ソウルイーター",
+        "name_en": "Soul Eater",
+        "genre": "アクション",
+        "reason": "スタイリッシュなデザインが令和のファンにも受け、15周年グッズが高売上。"
+    },
+    {
+        "name_ja": "D.Gray-man",
+        "name_en": "D.Gray-man",
+        "genre": "ダークファンタジー",
+        "reason": "原画展の全国巡回や高級ジュエリーブランドとのコラボが継続中。"
+    },
+    {
+        "name_ja": "家庭教師ヒットマンREBORN!",
+        "name_en": "Katekyo Hitman Reborn!",
+        "genre": "アクション",
+        "reason": "ポップアップストアが高頻度で開催され、毎回SNSでトレンド入り。"
+    },
+    {
+        "name_ja": "銀魂",
+        "name_en": "Gintama",
+        "genre": "コメディ・アクション",
+        "reason": "完結後も勢いが衰えず、コラボカフェ・一番くじが常に行われている。"
+    },
+    {
+        "name_ja": "デュラララ!!",
+        "name_en": "Durarara!!",
+        "genre": "アクション・サスペンス",
+        "reason": "池袋という聖地を活かしたカフェやストア展開が恒例。"
+    },
+    {
+        "name_ja": "ジョジョの奇妙な冒険（第4部〜）",
+        "name_en": "JoJo Part 4+",
+        "genre": "アクション・超能力",
+        "reason": "第4部・5部中心のグッズやコラボが令和世代に人気急上昇中。"
+    },
+    {
+        "name_ja": "ギルティクラウン",
+        "name_en": "Guilty Crown",
+        "genre": "SF・アクション",
+        "reason": "音楽（EGOIST）と結びついたコアなファンが周年グッズを毎回話題にする。"
+    },
+    {
+        "name_ja": "ダーリン・イン・ザ・フランキス",
+        "name_en": "Darling in the FranXX",
+        "genre": "SF・メカ",
+        "reason": "ゼロツーの人気が世界的に突出、新作フィギュア・アパレルが継続発表。"
+    },
+    {
+        "name_ja": "TRIGUN STAMPEDE",
+        "name_en": "Trigun Stampede",
+        "genre": "SF・アクション",
+        "reason": "新作アニメ化により新旧ファンが融合、眼鏡ブランドJINSとのコラボが人気。"
+    },
+    {
+        "name_ja": "HELLSING Ultimate",
+        "name_en": "Hellsing",
+        "genre": "ダークファンタジー",
+        "reason": "高級スタチューやミリタリー風コラボグッズが人気継続。"
+    },
+    {
+        "name_ja": "オーバーロード",
+        "name_en": "Overlord",
+        "genre": "異世界・ダークファンタジー",
+        "reason": "劇場版公開に伴い高級グッズが多数登場。"
+    },
+    {
+        "name_ja": "転生したらスライムだった件",
+        "name_en": "That Time I Got Reincarnated as a Slime",
+        "genre": "異世界",
+        "reason": "一番くじの定番化、大手メーカーとのコラボも多い。"
+    },
+    {
+        "name_ja": "この素晴らしい世界に祝福を！",
+        "name_en": "Konosuba",
+        "genre": "異世界・コメディ",
+        "reason": "アニメ3期に合わせて一番くじやコラボカフェが各所で開催中。"
+    },
+    {
+        "name_ja": "幼女戦記",
+        "name_en": "The Saga of Tanya the Evil",
+        "genre": "異世界・軍事",
+        "reason": "勲章や軍章をモチーフにしたマニア向けコレクターズアイテムが強い。"
+    },
+    {
+        "name_ja": "ノーゲーム・ノーライフ",
+        "name_en": "No Game No Life",
+        "genre": "異世界・SF",
+        "reason": "独自の色彩センスがフィギュア映えし、周年記念の豪華フィギュアが大きな関心事。"
+    },
+    {
+        "name_ja": "無職転生",
+        "name_en": "Mushoku Tensei: Jobless Reincarnation",
+        "genre": "異世界",
+        "reason": "印象的なシーンのフィギュアや設定資料集が熱い支持を得ている。"
+    },
+    {
+        "name_ja": "ユーリ!!! on ICE",
+        "name_en": "Yuri!!! on Ice",
+        "genre": "スポーツ・感動",
+        "reason": "コラボカフェや既存グッズの需要が絶えない。"
+    },
+    {
+        "name_ja": "Free!",
+        "name_en": "Free!",
+        "genre": "スポーツ・青春",
+        "reason": "10周年越えても鳥取県岩美町とのコラボ等が大盛況。"
+    },
+    {
+        "name_ja": "夏目友人帳",
+        "name_en": "Natsume's Book of Friends",
+        "genre": "ファンタジー・感動",
+        "reason": "ニャンコ先生のブランド力が凄まじく、一番くじの開催回数はトップクラス。"
+    },
+    {
+        "name_ja": "蟲師",
+        "name_en": "Mushishi",
+        "genre": "ファンタジー・感動",
+        "reason": "伝統工芸品とのコラボや高級複製原画などが静かに即完売する人気。"
+    },
+    {
+        "name_ja": "四月は君の嘘",
+        "name_en": "Your Lie in April",
+        "genre": "音楽・感動",
+        "reason": "舞台化やコンサート、周年記念の高級複製原画など音楽セットの情緒的展開が強い。"
+    },
+    {
+        "name_ja": "あの日見た花の名前を僕達はまだ知らない。",
+        "name_en": "Anohana",
+        "genre": "ドラマ・感動",
+        "reason": "秩父市との長年の強力なコラボ契約、周年イベントで限定グッズを入手する。"
+    },
+    {
+        "name_ja": "CLANNAD",
+        "name_en": "Clannad",
+        "genre": "ドラマ・感動",
+        "reason": "Key作品の代表格として周年イベントや限定グッズが20年近く活発。"
+    },
+    {
+        "name_ja": "Angel Beats!",
+        "name_en": "Angel Beats!",
+        "genre": "ドラマ・音楽",
+        "reason": "新作スマホアプリ「ヘブバン」とのコラボを筆頭に音楽イベントが熱い。"
+    },
+    {
+        "name_ja": "響け！ユーフォニアム",
+        "name_en": "Sound! Euphonium",
+        "genre": "音楽・青春",
+        "reason": "アニメ3期完結を迎え、聖地宇治市とのコラボや音楽関連イベントが活況。"
+    },
+    {
+        "name_ja": "やがて君になる",
+        "name_en": "Bloom Into You",
+        "genre": "ドラマ・百合",
+        "reason": "百合ジャンルの金字塔として、カフェやアパレル、ペアアクセサリーの展開が強い。"
+    },
+    {
+        "name_ja": "ギヴン",
+        "name_en": "Given",
+        "genre": "音楽・ボーイズラブ",
+        "reason": "実際の楽器展示を含むコラボカフェや、音楽ショップでの大型フェアが連続発生。"
+    },
+    {
+        "name_ja": "BLUE GIANT",
+        "name_en": "Blue Giant",
+        "genre": "音楽",
+        "reason": "高級スピーカーやレコード、ジャズクラブとのコラボなどこだわり派向けの展開が加速。"
+    },
+    {
+        "name_ja": "NANA",
+        "name_en": "Nana",
+        "genre": "音楽・ドラマ",
+        "reason": "ファッション性が高く、ハイブラ風のアパレルコラボが令和にも大流行。"
+    },
+    {
+        "name_ja": "王様ランキング",
+        "name_en": "Ranking of Kings",
+        "genre": "ファンタジー・感動",
+        "reason": "「ボッジ」のキャラ人気が高く、幅広い年代に受け入れられるグッズが展開される。"
+    },
+    {
+        "name_ja": "Devilman Crybaby",
+        "name_en": "Devilman Crybaby",
+        "genre": "ダークファンタジー",
+        "reason": "湯浅政明監督の作品として、アパレルブランドとの尖ったコラボが目立つ。"
+    },
+    {
+        "name_ja": "賭ケグルイ",
+        "name_en": "Kakegurui",
+        "genre": "ダークファンタジー・ギャンブル",
+        "reason": "蛇喰夢子の圧倒的ビジュアルを活かしたアパレルやカフェが活発。"
+    },
+    {
+        "name_ja": "カイジ",
+        "name_en": "Kaiji",
+        "genre": "ダークファンタジー・ギャンブル",
+        "reason": "大手コンビニでのコラボキャンペーンや体験型イベントが絶えない。"
+    },
+    {
+        "name_ja": "スラムダンク",
+        "name_en": "Slam Dunk",
+        "genre": "スポーツ",
+        "reason": "映画「THE FIRST SLAM DUNK」の世界的メガヒットにより各国での期間限定展開が社会現象化。"
+    },
+    {
+        "name_ja": "カードキャプターさくら",
+        "name_en": "Cardcaptor Sakura",
+        "genre": "魔法少女・ファンタジー",
+        "reason": "コスメ、ジュエリー、アパレルなど大人女性向け高単価グッズが毎月発表中。"
+    },
+    {
+        "name_ja": "少女革命ウテナ",
+        "name_en": "Revolutionary Girl Utena",
+        "genre": "ダークファンタジー・学園",
+        "reason": "高級アクセサリーや舞台衣装をモチーフにした限定アパレルが即完売。"
+    },
+    {
+        "name_ja": "おジャ魔女どれみ",
+        "name_en": "Ojamajo Doremi",
+        "genre": "魔法少女",
+        "reason": "25周年企画が進行中、有名ジュエリー店やコスメブランドとのコラボが止まらない。"
+    },
+    {
+        "name_ja": "プリキュア シリーズ",
+        "name_en": "PreCure",
+        "genre": "魔法少女・バトル",
+        "reason": "20周年を機に大人向け高級アクセサリーや一番くじの勢いが凄まじい。"
+    },
+    {
+        "name_ja": "アイカツ！ シリーズ",
+        "name_en": "Aikatsu!",
+        "genre": "アイドル",
+        "reason": "12周年に突入し、一番くじやコラボカフェ、ライブイベントと連動した記念グッズが争奪戦。"
+    },
+    {
+        "name_ja": "あんさんぶるスターズ！！",
+        "name_en": "Ensemble Stars!",
+        "genre": "アイドル",
+        "reason": "女性向けコンテンツとして国内最大級のグッズ市場規模。カフェや一番くじが日常化。"
+    },
+    {
+        "name_ja": "ヒプノシスマイク",
+        "name_en": "Hypnosis Mic",
+        "genre": "ラップバトル・アイドル",
+        "reason": "キャラクター別のコラボカフェや大手飲食チェーンとのメニューコラボが活発。"
+    },
+    {
+        "name_ja": "刀剣乱舞",
+        "name_en": "Touken Ranbu",
+        "genre": "アクション・歴史",
+        "reason": "博物館との連携や伝統工芸コラボなど高級路線からカジュアルまでトップクラスのシェア。"
+    },
+    {
+        "name_ja": "黒執事",
+        "name_en": "Black Butler",
+        "genre": "ダークファンタジー",
+        "reason": "最新「寄宿学校編」放送により人気が再燃。一番くじやアフタヌーンティーコラボが大盛況。"
+    },
+    {
+        "name_ja": "ホリミヤ",
+        "name_en": "Horimiya",
+        "genre": "ラブコメ",
+        "reason": "カフェやペアアクセサリーブランドとのコラボがSNSで非常に人気。"
+    },
+    {
+        "name_ja": "やはり俺の青春ラブコメはまちがっている。",
+        "name_en": "Oregairu",
+        "genre": "ラブコメ・ドラマ",
+        "reason": "千葉市周辺での長期的なスタンプラリー、限定グッズ展開が恒例行事化。"
+    },
+    {
+        "name_ja": "涼宮ハルヒの憂鬱",
+        "name_en": "The Melancholy of Haruhi Suzumiya",
+        "genre": "SF・学園",
+        "reason": "パチンコやアパレル、原画展などの不定期だが大型の展開が続いている。"
+    },
+    {
+        "name_ja": "らき☆すた",
+        "name_en": "Lucky Star",
+        "genre": "コメディ・日常",
+        "reason": "鷲宮神社などの聖地イベントが20年近く続いており、記念グッズ発売の度にファンが巡礼。"
+    },
+    {
+        "name_ja": "Dr.STONE",
+        "name_en": "Dr. Stone",
+        "genre": "SF・冒険",
+        "reason": "アニメ完結編に向け、科学博物館や大手百貨店マルイでのポップアップが頻繁に開催。"
+    },
+    {
+        "name_ja": "よふかしのうた",
+        "name_en": "Call of the Night",
+        "genre": "ダークファンタジー・青春",
+        "reason": "夜の世界観を活かしたネオン調グッズやストリート系アパレルコラボが若年層に高評価。"
+    },
+    {
+        "name_ja": "ダンダダン",
+        "name_en": "Dandadan",
+        "genre": "SF・サスペンス・アクション",
+        "reason": "2024年秋アニメ化に伴い、多数のアパレル、一番くじ、ポップアップストアが展開中。"
+    },
+    {
+        "name_ja": "SAKAMOTO DAYS",
+        "name_en": "Sakamoto Days",
+        "genre": "アクション",
+        "reason": "アニメ化を控え大型フェアが行われ、グラフィティ風グッズが急増中。"
+    },
+    {
+        "name_ja": "ノラガミ",
+        "name_en": "Noragami",
+        "genre": "ファンタジー・アクション",
+        "reason": "原作完結を機に原画展や記念品としての高級グッズが展開されている。"
+    },
+    {
+        "name_ja": "僕だけがいない街",
+        "name_en": "Erased",
+        "genre": "サスペンス・タイムリープ",
+        "reason": "実写化含め認知度が高く、サスペンスアニメ特集等のポップアップで重要作品として扱われる。"
+    },
+    {
+        "name_ja": "アカメが斬る！",
+        "name_en": "Akame ga Kill!",
+        "genre": "ダークファンタジー・アクション",
+        "reason": "海外向けも含めた高品質なスケールフィギュアの受注が行われている。"
+    },
+    {
+        "name_ja": "K（プロジェクトK）",
+        "name_en": "K Project",
+        "genre": "アクション・ファンタジー",
+        "reason": "ビジュアルクオリティが高く評価され、ポップアップストアやカフェ、舞台化が高頻度。"
+    },
+    {
+        "name_ja": "Another",
+        "name_en": "Another",
+        "genre": "ホラー・ミステリー",
+        "reason": "独特の雰囲気を活かしたニッチなグッズやカフェが夏の定番。"
+    },
+    {
+        "name_ja": "FLCL（フリクリ）",
+        "name_en": "FLCL",
+        "genre": "SF・アクション",
+        "reason": "海外評価が極めて高く、ストリート系アパレルブランドとのエッジの効いたコラボが長期継続。"
+    },
+    {
+        "name_ja": "不滅のあなたへ",
+        "name_en": "To Your Eternity",
+        "genre": "ファンタジー・感動",
+        "reason": "壮大なテーマが大人のファンを惹きつけ、高品質なアートブックや展示会がコンスタントに行われる。"
+    },
+    {
+        "name_ja": "ダーウィンズゲーム",
+        "name_en": "Darwin's Game",
+        "genre": "アクション・サバイバル",
+        "reason": "サバイバル系の独特な世界観がグッズ映えし、コアなファン向けの展開が続く。"
+    },
+    {
+        "name_ja": "骸骨騎士様、只今異世界へお出掛け中",
+        "name_en": "Skeleton Knight in Another World",
+        "genre": "異世界",
+        "reason": "ユニークなビジュアルが人気、一番くじや等身大グッズが話題になる。"
+    },
+    {
+        "name_ja": "うたの☆プリンスさまっ♪",
+        "name_en": "Uta no Prince-sama",
+        "genre": "アイドル・音楽",
+        "reason": "根強い女性ファン層が維持され、コラボカフェやアパレルコラボが量産されている。"
+    },
+    {
+        "name_ja": "テガミバチ",
+        "name_en": "Letter Bee",
+        "genre": "ファンタジー・感動",
+        "reason": "幻想的な世界観がアクセサリーや文具にコラボしやすく、こっそり根強い人気。"
+    },
+    {
+        "name_ja": "TIGER & BUNNY",
+        "name_en": "Tiger & Bunny",
+        "genre": "スーパーヒーロー",
+        "reason": "実在企業とのコラボが多く、劇場版公開に向けた関連グッズの規模は常に大きい。"
+    },
+    {
+        "name_ja": "アイドルマスター シリーズ",
+        "name_en": "Idol Master",
+        "genre": "アイドル",
+        "reason": "シャニマス・ミリオン等の各シリーズファンの購買力が高く、コラボグッズの展開が止まらない。"
+    }
+]

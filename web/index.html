@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport" />
+  <title>Animation Roastery | Artisanal News for Fans</title>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#fdfdfc">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="favicon.svg">
+
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;700;800&family=Zen+Kaku+Gothic+New:wght@300;400;500;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+    rel="stylesheet" />
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#4a5d7e", // Soft indigo
+            "accent": "#c47a68", // Muted terracotta
+            "secondary": "#929e85", // Sage green
+            "warm-bg": "#faf7f2", // Washi paper color
+            "card-bg": "#ffffff",
+            "text-main": "#3a3633", // Soft ink charcoal
+          },
+          fontFamily: {
+            "serif": ["Shippori Mincho", "serif"],
+            "sans": ["Zen Kaku Gothic New", "sans-serif"]
+          },
+          borderRadius: {
+            "custom": "1.5rem",
+          },
+        },
+      },
+    }
+  </script>
+  <style type="text/tailwindcss">
+    @layer base {
+            body {
+                @apply bg-warm-bg text-text-main font-sans;
+                background-image: url("https://www.transparenttextures.com/patterns/cream-paper.png");
+            }
+            h1, h2, h3, h4 {
+                @apply font-serif;
+            }
+        }
+        .paper-shadow {
+            box-shadow: 0 4px 20px -2px rgba(0,0,0,0.05), 0 2px 10px -2px rgba(0,0,0,0.03);
+        }
+        .glass-nav {
+            background: rgba(250, 247, 242, 0.85);
+            backdrop-filter: blur(8px);
+        }
+        .border-dashed-jp {
+            background-image: linear-gradient(to right, #dcd2c3 50%, transparent 50%);
+            background-size: 10px 1px;
+            background-repeat: repeat-x;
+        }
+
+        /* Loading Spinner */
+        .spinner {
+            border: 4px solid rgba(196, 122, 104, 0.2);
+            border-top: 4px solid #c47a68;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+        /* Toast Toast */
+        .toast {
+            visibility: hidden;
+            min-width: 250px;
+            background-color: var(--color-primary, #4a5d7e);
+            color: #fff;
+            text-align: center;
+            border-radius: 999px;
+            padding: 16px;
+            position: fixed;
+            z-index: 1000;
+            left: 50%;
+            bottom: 30px;
+            transform: translateX(-50%);
+            font-size: 15px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            opacity: 0;
+            transition: opacity 0.3s, bottom 0.3s;
+        }
+        .toast.show {
+            visibility: visible;
+            opacity: 1;
+            bottom: 50px;
+        }
+    </style>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistrations().then(function (registrations) {
+        for (let registration of registrations) { registration.unregister(); }
+      });
+    }
+  </script>
+</head>
+
+<body class="antialiased">
+
+  <header class="sticky top-0 z-50 w-full border-b border-[#e5dfd5] glass-nav">
+    <div class="container mx-auto px-4 lg:px-10 h-20 flex items-center justify-between gap-8">
+      <div class="flex items-center gap-10">
+        <a class="flex items-center gap-2 group cursor-pointer" onclick="window.location.reload()">
+          <span
+            class="material-symbols-outlined text-accent text-3xl font-light transform group-hover:rotate-12 transition-transform">eco</span>
+          <h1 class="text-2xl font-extrabold tracking-tight text-primary leading-none hidden sm:block">Animation
+            Roastery</h1>
+        </a>
+        <nav class="hidden lg:flex items-center gap-8" id="category-filters">
+          <button
+            class="filter-btn text-sm font-medium hover:text-accent transition-colors border-b-2 border-transparent hover:border-accent pb-1"
+            data-category="グッズ">グッズ</button>
+          <button
+            class="filter-btn text-sm font-medium hover:text-accent transition-colors border-b-2 border-transparent hover:border-accent pb-1"
+            data-category="イベント">イベント</button>
+          <button
+            class="filter-btn text-sm font-medium hover:text-accent transition-colors border-b-2 border-transparent hover:border-accent pb-1"
+            data-category="コラボカフェ">コラボカフェ</button>
+          <button
+            class="filter-btn text-sm font-medium hover:text-accent transition-colors border-b-2 border-transparent hover:border-accent pb-1"
+            data-category="favorites">お気に入り ♥️</button>
+        </nav>
+      </div>
+      <div class="flex flex-1 max-w-md items-center gap-4">
+        <div class="relative w-full flex">
+          <span
+            class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-primary/40 text-lg">search</span>
+          <input id="hero-search-input"
+            class="w-full bg-[#f0ede6]/60 border-none rounded-full pl-11 pr-4 py-2.5 text-sm focus:ring-1 focus:ring-accent/30 transition-all placeholder:text-stone-400"
+            placeholder="アニメ名を入力" type="text"
+            onkeydown="if(event.key==='Enter') document.getElementById('hero-search-btn').click();" />
+          <button id="hero-search-btn" class="hidden">Search</button>
+        </div>
+
+        <div class="flex items-center gap-4">
+          <!-- Login Button (Visible when NOT logged in) -->
+          <button id="btn-login-open"
+            class="text-sm font-bold text-primary hover:text-accent transition-colors whitespace-nowrap">
+            Login
+          </button>
+
+          <!-- User Profile (Visible when logged in) -->
+          <div id="user-profile" class="hidden flex items-center gap-3">
+            <span id="user-display-name" class="text-sm font-medium text-stone-600 hidden sm:block">User</span>
+            <button id="btn-logout" class="p-2 rounded-full hover:bg-stone-100 transition-colors text-stone-600"
+              title="Logout">
+              <span class="material-symbols-outlined text-[18px]">logout</span>
+            </button>
+            <!-- <div class="w-9 h-9 rounded-full bg-cover bg-center border-2 border-stone-200 paper-shadow" style="background-image: url('https://lh3.googleusercontent.com/a...')"></div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-4 lg:px-10 py-10">
+
+    <!-- Hero Section -->
+    <section id="hero-section"
+      class="mb-16 relative rounded-[2rem] overflow-hidden paper-shadow border border-[#e5dfd5] transition-opacity duration-1000">
+      <a id="hero-link" href="#" target="_blank" class="block w-full h-full cursor-pointer group">
+        <div id="hero-bg"
+          class="aspect-[21/9] w-full bg-cover bg-center transition-transform duration-1000 group-hover:scale-105"
+          style="background-image: linear-gradient(to right, rgba(62, 76, 110, 0.4), transparent), url('https://lh3.googleusercontent.com/aida-public/AB6AXuAAx5JpHC3_eJNyMXYoQ0xDWcNu5LoHuNuL4eq8UQG3q5U6znvCd5jBxMevT0__WCqOz_Nz_14OGMGhZpvZyaVw_SoNupChU5RZTmloZKAQHWBaogVnbAeRSJtsLc5v1bfzNjL7oEOAdMLmxLYCCUnn4nnpJ-SvGTZmU1tT3qh95-FjAcIRBVbf6cPf-VMoEF6jmUm3J7hHPFKZtnREMIrub0QR79WqgYwhGfGsQbfeooE4iHmAPXbXFmNnL_tFyfngnnixeyf2il7w')">
+        </div>
+        <div
+          class="absolute inset-0 flex flex-col justify-center px-8 lg:px-20 text-white bg-gradient-to-r from-primary/80 via-primary/30 to-transparent pointer-events-none">
+          <div class="flex items-center gap-2 mb-4">
+            <span class="w-8 h-[1px] bg-accent"></span>
+            <span id="hero-category" class="text-xs font-bold uppercase tracking-[0.2em] text-accent-light"
+              style="color:#dcd2c3;">Recommended Series</span>
+          </div>
+          <h2 id="hero-title"
+            class="text-3xl md:text-5xl lg:text-6xl font-extrabold max-w-2xl mb-4 md:mb-6 leading-[1.15] group-hover:text-amber-100 transition-colors pointer-events-auto">
+            Enjoy A Touch of<br />Anime Culture Everyday</h2>
+          <p id="hero-desc"
+            class="text-stone-100/90 max-w-lg mb-8 text-sm md:text-lg font-light leading-relaxed hidden sm:block pointer-events-auto">
+            Experience the finest selection of limited collaborations, exclusive merchandise, and seasonal café menus
+            curated for true enthusiasts.</p>
+        </div>
+      </a>
+    </section>
+
+    <!-- Main Content Area -->
+    <div class="flex flex-col lg:flex-row gap-12">
+      <div class="flex-1">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-10 gap-4">
+          <div>
+            <h3 id="section-heading" class="text-3xl font-bold text-primary mb-2">Latest Journal</h3>
+            <div class="w-20 h-1 bg-accent rounded-full"></div>
+          </div>
+          <!-- Categories for Mobile/Tablet -->
+          <div class="flex lg:hidden gap-3 overflow-x-auto pb-2" id="category-filters-mobile">
+            <button
+              class="filter-btn px-6 py-2 text-sm font-medium rounded-full bg-primary text-white paper-shadow whitespace-nowrap"
+              data-category="all">All</button>
+            <button
+              class="filter-btn px-6 py-2 text-sm font-medium rounded-full bg-white text-stone-600 hover:bg-stone-100 transition-colors whitespace-nowrap"
+              data-category="グッズ">Merch</button>
+            <button
+              class="filter-btn px-6 py-2 text-sm font-medium rounded-full bg-white text-stone-600 hover:bg-stone-100 transition-colors whitespace-nowrap"
+              data-category="イベント">Events</button>
+            <button
+              class="filter-btn px-6 py-2 text-sm font-medium rounded-full bg-white text-stone-600 hover:bg-stone-100 transition-colors whitespace-nowrap"
+              data-category="favorites">♥️Fav</button>
+          </div>
+        </div>
+
+        <!-- Loading State -->
+        <div id="loading" class="hidden py-20 flex flex-col items-center justify-center">
+          <div class="spinner mb-4"></div>
+          <p class="text-stone-500 font-medium">Extracting essences...</p>
+        </div>
+
+        <!-- Empty State -->
+        <div id="empty-state" class="hidden py-20 text-center">
+          <span class="material-symbols-outlined text-6xl text-stone-300 mb-4 block">eco</span>
+          <h2 class="text-2xl font-bold text-primary mb-2">No Articles Found</h2>
+          <p class="text-stone-500">We are currently searching for the latest information. Please check back later.</p>
+        </div>
+
+        <!-- Cards Container -->
+        <div id="cards-container" class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- Cards will be injected here by app.js -->
+        </div>
+
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="w-full lg:w-96 space-y-12">
+        <section class="bg-card-bg rounded-[2rem] p-8 border border-[#e5dfd5] paper-shadow">
+          <h3 class="text-xl font-bold mb-8 flex items-center gap-3 text-primary">
+            <span class="material-symbols-outlined text-accent">flare</span> Trending Seeds
+          </h3>
+          <div class="space-y-8" id="trending-container">
+            <!-- Dynamically populated top 3 scored items -->
+          </div>
+        </section>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="bg-white mt-20 border-t border-[#e5dfd5] py-16 relative overflow-hidden">
+    <div class="container mx-auto px-4 lg:px-10 text-center">
+      <div class="flex items-center justify-center gap-2 text-primary mb-4">
+        <span class="material-symbols-outlined text-accent text-3xl">eco</span>
+        <h1 class="text-lg font-extrabold tracking-tight">Animation Roastery</h1>
+      </div>
+      <p class="text-[12px] text-stone-500 font-light leading-relaxed max-w-2xl mx-auto mb-6">
+        当サイトはアニメ・グッズ等の情報を収集するアンテナサイトです。掲載している画像・テキストの著作権・肖像権等は各権利所有者に帰属致します。権利を侵害する目的は一切御座いません。掲載内容に問題がある場合は、お手数ですが作者X（Twitter）までご連絡下さい。速やかに削除等の対応を致します。
+      </p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-6 mb-8">
+        <a href="https://x.com/qx023" target="_blank"
+          class="text-stone-400 hover:text-accent transition-colors flex items-center gap-1.5 text-sm font-bold bg-stone-50 px-4 py-2 rounded-xl border border-stone-200">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+            <path
+              d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.005 4.15H5.059z" />
+          </svg>
+          @qx023
+        </a>
+      </div>
+      <div class="pt-8 border-t border-[#f0ede6]">
+        <p class="text-[11px] text-stone-300 uppercase tracking-widest font-bold">
+          © 2024 Animation Roastery
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast and Modal Overlays -->
+  <div id="toast" class="toast"></div>
+
+  <!-- Auth Modal (Tailwind styled) -->
+  <div id="auth-modal"
+    class="fixed inset-0 z-[100] bg-[#3a3633]/60 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div class="bg-warm-bg w-full max-w-md rounded-[2rem] p-8 md:p-10 shadow-2xl relative border border-[#e5dfd5]">
+      <button id="modal-close" class="absolute top-6 right-6 text-stone-400 hover:text-accent transition-colors">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+
+      <!-- Step 1: Social & Email Login -->
+      <div id="auth-step-1">
+        <div class="text-center mb-8">
+          <span class="material-symbols-outlined text-accent text-4xl mb-2">local_cafe</span>
+          <h2 id="auth-title" class="text-2xl font-bold text-primary">ログイン</h2>
+          <p class="text-sm text-stone-500 mt-2">お気に入りを同期して通知を受け取ろう</p>
+        </div>
+
+        <div class="space-y-3 mb-8">
+          <button type="button" id="btn-login-google"
+            class="w-full flex items-center justify-center gap-3 bg-white border border-stone-200 text-stone-700 font-medium py-3 px-4 rounded-xl hover:bg-stone-50 transition-colors shadow-sm">
+            <img src="https://www.google.com/favicon.ico" class="w-5 h-5" alt="Google"> Google でログイン
+          </button>
+          <button type="button" id="btn-login-line"
+            class="w-full flex items-center justify-center gap-3 bg-[#06C755] text-white font-medium py-3 px-4 rounded-xl hover:bg-[#05b34c] transition-colors shadow-sm relative overflow-hidden">
+            <span
+              class="absolute left-4 w-6 h-6 bg-white rounded flex items-center justify-center text-[#06C755] font-black text-sm">L</span>
+            LINE でログイン
+          </button>
+        </div>
+
+        <div class="relative flex py-5 items-center">
+          <div class="flex-grow border-t border-stone-200"></div>
+          <span class="flex-shrink-0 mx-4 text-stone-400 text-xs uppercase tracking-widest font-bold">またはメールアドレスで</span>
+          <div class="flex-grow border-t border-stone-200"></div>
+        </div>
+
+        <form id="auth-form" class="space-y-4">
+          <input type="email" id="auth-email"
+            class="w-full bg-white border border-[#dcd2c3] rounded-xl py-3 px-4 text-sm focus:ring-1 focus:ring-accent/30 focus:border-accent transition-all placeholder:text-stone-400"
+            placeholder="mail@example.com" required>
+          <input type="password" id="auth-pw"
+            class="w-full bg-white border border-[#dcd2c3] rounded-xl py-3 px-4 text-sm focus:ring-1 focus:ring-accent/30 focus:border-accent transition-all placeholder:text-stone-400"
+            placeholder="パスワード" required>
+          <button type="submit" id="auth-submit"
+            class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-3.5 rounded-xl transition-all shadow-md">ログイン</button>
+        </form>
+        <p class="text-center text-sm text-stone-500 mt-6 mt-4">
+          アカウントをお持ちでないですか？ <span id="auth-toggle"
+            class="text-accent font-bold cursor-pointer hover:underline">新規登録</span>
+        </p>
+      </div>
+
+      <!-- Step 2: 2FA (OTP) -->
+      <div id="auth-step-2" class="hidden">
+        <div class="text-center mb-8">
+          <span class="material-symbols-outlined text-primary text-4xl mb-2">mark_email_read</span>
+          <h2 id="auth-step-2-title" class="text-2xl font-bold text-primary">二段階認証</h2>
+          <p id="auth-step-2-subtitle" class="text-sm text-stone-500 mt-2">メールアドレスに6桁の認証コードを送信しました。</p>
+        </div>
+        <form id="otp-form" class="space-y-4">
+          <input type="text" id="auth-otp"
+            class="w-full text-center tracking-[0.5em] text-2xl bg-white border border-[#dcd2c3] rounded-xl py-4 px-4 focus:ring-1 focus:ring-accent/30 focus:border-accent transition-all font-bold"
+            placeholder="------" pattern="\d{6}" maxlength="6" required>
+          <button type="submit"
+            class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-3.5 rounded-xl transition-all shadow-md">認証してログイン</button>
+        </form>
+        <p class="text-center text-sm mt-6">
+          <span id="auth-back-to-step1"
+            class="text-stone-400 font-medium cursor-pointer hover:text-primary transition-colors">← 戻る</span>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js?v=8"></script>
+</body>
+
+</html>
