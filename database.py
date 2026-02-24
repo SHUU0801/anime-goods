@@ -79,7 +79,16 @@ class DBConnectionWrapper:
 def get_db_connection():
     if DATABASE_URL:
         import psycopg
-        conn = psycopg.connect(DATABASE_URL)
+        from urllib.parse import urlparse, unquote
+        url = urlparse(DATABASE_URL)
+        conn = psycopg.connect(
+            host=url.hostname,
+            port=url.port or 5432,
+            dbname=url.path.lstrip('/'),
+            user=url.username,
+            password=unquote(url.password or ''),
+            sslmode='require'
+        )
         return DBConnectionWrapper(conn, True)
     else:
         conn = sqlite3.connect(DB_PATH)
@@ -94,76 +103,123 @@ def get_integrity_error():
 
 def init_db():
     """データベースの初期化（テーブル作成）"""
-    conn = get_db_connection()
-    c = conn.cursor()
-    c.execute('''
-        CREATE TABLE IF NOT EXISTS goods_info (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            title TEXT,
-            content TEXT,
-            author TEXT,
-            source_url TEXT,
-            source_type TEXT,
-            category TEXT,
-            date TEXT,
-            created_at TEXT DEFAULT CURRENT_TIMESTAMP,
-            freshness_score INTEGER DEFAULT 0,
-            rarity_score INTEGER DEFAULT 0,
-            reliability_score INTEGER DEFAULT 0,
-            total_score INTEGER DEFAULT 0,
-            priority_level TEXT DEFAULT '',
-            image_url TEXT DEFAULT ''
+    if DATABASE_URL:
+        # PostgreSQLの場合：autocommit=TrueでDDLを直接実行（トランザクション中断を防ぐ）
+        import psycopg
+        from urllib.parse import urlparse, unquote
+        url = urlparse(DATABASE_URL)
+        conn = psycopg.connect(
+            host=url.hostname,
+            port=url.port or 5432,
+            dbname=url.path.lstrip('/'),
+            user=url.username,
+            password=unquote(url.password or ''),
+            sslmode='require',
+            autocommit=True
         )
-    ''')
-    c.execute('''
-        CREATE TABLE IF NOT EXISTS search_queue (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            query TEXT UNIQUE,
-            status TEXT DEFAULT 'pending',
-            created_at TEXT DEFAULT (datetime('now','localtime'))
-        )
-    ''')
-    
-    # ユーザー管理（Firebase等の代替としてのローカルAuth用）
-    c.execute('''
-        CREATE TABLE IF NOT EXISTS users (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            email TEXT UNIQUE,
-            password_hash TEXT,
-            created_at TEXT DEFAULT (datetime('now','localtime'))
-        )
-    ''')
-    
-    # お気に入り管理
-    c.execute('''
-        CREATE TABLE IF NOT EXISTS favorites (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            user_id INTEGER,
-            anime_title TEXT,
-            created_at TEXT DEFAULT (datetime('now','localtime')),
-            UNIQUE(user_id, anime_title)
-        )
-    ''')
-
-    # Pushサブスクリプション管理
-    c.execute('''
-        CREATE TABLE IF NOT EXISTS push_subscriptions (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            user_id INTEGER,
-            subscription_json TEXT,
-            created_at TEXT DEFAULT (datetime('now','localtime')),
-            UNIQUE(user_id, subscription_json)
-        )
-    ''')
-    # 既存のテーブル構造の拡張（アップデート時の移行処理）
-    try:
-        c.execute("ALTER TABLE goods_info ADD COLUMN image_url TEXT DEFAULT ''")
-    except Exception:
-        pass # カラムが既に存在する場合はエラーになるため無視
-
-    # URLのUNIQUE制約を追加したテーブル再作成の移行処理は省略（既存のまま）
-    conn.commit()
-    conn.close()
+        cur = conn.cursor()
+        tables = [
+            '''CREATE TABLE IF NOT EXISTS goods_info (
+                id SERIAL PRIMARY KEY,
+                title TEXT, content TEXT, author TEXT, source_url TEXT,
+                source_type TEXT, category TEXT, date TEXT,
+                created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+                freshness_score INTEGER DEFAULT 0, rarity_score INTEGER DEFAULT 0,
+                reliability_score INTEGER DEFAULT 0, total_score INTEGER DEFAULT 0,
+                priority_level TEXT DEFAULT '', image_url TEXT DEFAULT ''
+            )''',
+            '''CREATE TABLE IF NOT EXISTS search_queue (
+                id SERIAL PRIMARY KEY,
+                query TEXT UNIQUE, status TEXT DEFAULT 'pending',
+                created_at TEXT DEFAULT CURRENT_TIMESTAMP
+            )''',
+            '''CREATE TABLE IF NOT EXISTS users (
+                id SERIAL PRIMARY KEY,
+                email TEXT UNIQUE, password_hash TEXT,
+                created_at TEXT DEFAULT CURRENT_TIMESTAMP
+            )''',
+            '''CREATE TABLE IF NOT EXISTS favorites (
+                id SERIAL PRIMARY KEY,
+                user_id INTEGER, anime_title TEXT,
+                created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+                UNIQUE(user_id, anime_title)
+            )''',
+            '''CREATE TABLE IF NOT EXISTS push_subscriptions (
+                id SERIAL PRIMARY KEY,
+                user_id INTEGER, subscription_json TEXT,
+                created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+                UNIQUE(user_id, subscription_json)
+            )''',
+            '''CREATE TABLE IF NOT EXISTS anime_targets (
+                id SERIAL PRIMARY KEY,
+                name_ja TEXT UNIQUE, name_en TEXT, genre TEXT, reason TEXT
+            )''',
+        ]
+        for sql in tables:
+            cur.execute(sql)
+        # image_urlカラム追加（既存テーブルへの移行）
+        try:
+            cur.execute("ALTER TABLE goods_info ADD COLUMN image_url TEXT DEFAULT ''")
+        except Exception:
+            pass  # 既にある場合は無視
+        conn.close()
+    else:
+        # SQLiteの場合：従来の処理
+        conn = get_db_connection()
+        c = conn.cursor()
+        c.execute('''
+            CREATE TABLE IF NOT EXISTS goods_info (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                title TEXT, content TEXT, author TEXT, source_url TEXT,
+                source_type TEXT, category TEXT, date TEXT,
+                created_at TEXT DEFAULT CURRENT_TIMESTAMP,
+                freshness_score INTEGER DEFAULT 0, rarity_score INTEGER DEFAULT 0,
+                reliability_score INTEGER DEFAULT 0, total_score INTEGER DEFAULT 0,
+                priority_level TEXT DEFAULT '', image_url TEXT DEFAULT ''
+            )
+        ''')
+        c.execute('''
+            CREATE TABLE IF NOT EXISTS search_queue (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                query TEXT UNIQUE, status TEXT DEFAULT 'pending',
+                created_at TEXT DEFAULT (datetime('now','localtime'))
+            )
+        ''')
+        c.execute('''
+            CREATE TABLE IF NOT EXISTS users (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                email TEXT UNIQUE, password_hash TEXT,
+                created_at TEXT DEFAULT (datetime('now','localtime'))
+            )
+        ''')
+        c.execute('''
+            CREATE TABLE IF NOT EXISTS favorites (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                user_id INTEGER, anime_title TEXT,
+                created_at TEXT DEFAULT (datetime('now','localtime')),
+                UNIQUE(user_id, anime_title)
+            )
+        ''')
+        c.execute('''
+            CREATE TABLE IF NOT EXISTS push_subscriptions (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                user_id INTEGER, subscription_json TEXT,
+                created_at TEXT DEFAULT (datetime('now','localtime')),
+                UNIQUE(user_id, subscription_json)
+            )
+        ''')
+        c.execute('''
+            CREATE TABLE IF NOT EXISTS anime_targets (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                name_ja TEXT UNIQUE, name_en TEXT, genre TEXT, reason TEXT
+            )
+        ''')
+        try:
+            c.execute("ALTER TABLE goods_info ADD COLUMN image_url TEXT DEFAULT ''")
+        except Exception:
+            pass
+        conn.commit()
+        conn.close()
     print("[DB] 初期化完了")
 
 def insert_item(item: dict) -> bool:
