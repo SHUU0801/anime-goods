@@ -23,6 +23,9 @@ sys.path.insert(0, BASE_DIR)
 import database
 from scorer import score_all
 
+# サーバー起動時にDBテーブルを自動作成（存在しない場合のみ）
+database.init_db()
+
 app = Flask(__name__, static_folder=os.path.join(BASE_DIR, "web"))
 app.secret_key = os.getenv("FLASK_SECRET_KEY", "animation-roastery-secret-key-dev")
 CORS(app, supports_credentials=True)
