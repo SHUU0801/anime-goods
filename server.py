@@ -2,7 +2,6 @@ import os
 import sys
 import sqlite3
 import csv
-import pandas as pd
 from flask import Flask, jsonify, request, send_from_directory, Response, send_file, redirect, session
 from flask_cors import CORS
 import uuid
