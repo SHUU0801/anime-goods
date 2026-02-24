@@ -28,15 +28,21 @@ def setup_targets_table():
         targets = json.load(f)
 
     inserted = 0
+    is_postgres = bool(os.getenv("DATABASE_URL"))
     for t in targets:
         try:
+            if is_postgres:
+                c.cursor.execute("SAVEPOINT sp1")
             c.execute("""
                 INSERT INTO anime_targets (name_ja, name_en, genre, reason)
                 VALUES (?, ?, ?, ?)
             """, (t["name_ja"], t["name_en"], t["genre"], t["reason"]))
+            if is_postgres:
+                c.cursor.execute("RELEASE SAVEPOINT sp1")
             inserted += 1
-        except database.get_integrity_error():
-            pass  # 重複スキップ
+        except Exception:
+            if is_postgres:
+                c.cursor.execute("ROLLBACK TO SAVEPOINT sp1")
 
     conn.commit()
     conn.close()
