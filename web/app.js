@@ -2,7 +2,9 @@
    app.js — Anime Goods Tracker PWA v4 (Starbucks Style)
    ============================================================ */
 
-const API_BASE = "http://localhost:5000";
+const API_BASE = (location.hostname === "localhost" || location.hostname === "127.0.0.1")
+    ? "http://localhost:5000"
+    : "";
 let allItems = [];
 let currentItems = []; // 表示対象となる現在のコレクション（フィルタ・検索後）
 let currentCategory = "all";
