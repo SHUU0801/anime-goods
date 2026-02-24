@@ -65,8 +65,8 @@ class DBConnectionWrapper:
 
     def cursor(self):
         if self.is_postgres:
-            import psycopg2.extras
-            return DBCursorWrapper(self.conn.cursor(cursor_factory=psycopg2.extras.DictCursor), True)
+            import psycopg
+            return DBCursorWrapper(self.conn.cursor(row_factory=psycopg.rows.dict_row), True)
         else:
             return DBCursorWrapper(self.conn.cursor(), False)
             
@@ -78,8 +78,8 @@ class DBConnectionWrapper:
 
 def get_db_connection():
     if DATABASE_URL:
-        import psycopg2
-        conn = psycopg2.connect(DATABASE_URL)
+        import psycopg
+        conn = psycopg.connect(DATABASE_URL)
         return DBConnectionWrapper(conn, True)
     else:
         conn = sqlite3.connect(DB_PATH)
@@ -87,8 +87,8 @@ def get_db_connection():
 
 def get_integrity_error():
     if DATABASE_URL:
-        import psycopg2
-        return psycopg2.IntegrityError
+        import psycopg.errors
+        return psycopg.errors.UniqueViolation
     else:
         return sqlite3.IntegrityError
 
